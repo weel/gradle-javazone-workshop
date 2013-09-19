@@ -1,13 +1,12 @@
 package no.iterate.restify.rs;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
+import java.util.ArrayList;
+import java.util.List;
 
 
 @Path("/") // This controller should handle requests to "/"
@@ -20,10 +19,8 @@ public class RootResource {
 		List<ExampleEntity> entities = new ArrayList<RootResource.ExampleEntity>();
 		entities.add(new ExampleEntity("Alice Example", 42));
 		entities.add(new ExampleEntity("Bob Example", 52));
-		
+
 		return Response.ok(entities).build();
-		// The above could be written as
-		// Response.ok().entity(entities).build();
 	}
 	
 	/***
