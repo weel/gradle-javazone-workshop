@@ -1,0 +1,251 @@
+<!doctype html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+
+    <title>Workshop - Gradle vs Maven</title>
+
+    <meta name="description" content="A framework for easily creating beautiful presentations using HTML">
+    <meta name="author" content="Hakim El Hattab">
+
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <link rel="stylesheet" href="css/reveal.min.css">
+    <link rel="stylesheet" href="css/theme/iterate.css" id="theme">
+
+    <!-- For syntax highlighting -->
+    <link rel="stylesheet" href="lib/css/github.css">
+
+    <!-- If the query includes 'print-pdf', use the PDF print sheet -->
+    <script>
+      document.write( '<link rel="stylesheet" href="css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
+    </script>
+
+    <!--[if lt IE 9]>
+    <script src="lib/js/html5shiv.js"></script>
+    <![endif]-->
+  </head>
+
+  <body>
+
+    <div class="reveal">
+
+      <!-- Any section element inside of this container is displayed as a slide -->
+      <div class="slides">
+        <section data-state="inverted">
+          <h2>Workshop</h2>
+          <h3>Gradle vs Maven</h3>
+          <small>github.com/weel/gradle-java-workshop</small>
+          <br/>
+          <a href="#">
+              <img width="300" height="300" src="http://www.catosplace.net/blogs/personal/wp-content/uploads/2010/05/arrested.jpg">
+          </a>
+          <br/>
+          <small>Switch before its too late...</small>
+
+        </section>
+
+        <section>
+          <h3>Agenda</h3>
+          <ul>
+            <li>Motivation & Background</li>
+            <li>Maven vs Gradle vs Ant</li>
+            <li>Gradle Intro</li>
+            <li>Build Java webapps with Gradle</li>
+            <li>Migrating from Maven to Gradle</li>
+            <li>Gradle tips & Tricks</li>
+            <li>Bonus</li>
+          </ul>
+
+        </section>
+
+        <section>
+          <a href="#">
+              <img  src="http://zeroturnaround.com/wp-content/uploads/2014/01/build-tools-popularity-2010-to-2013.jpg">
+          </a>
+        </section>
+        <section>
+          <h3>Why choose Gradle over Maven</h3>
+          <ul>
+              <li>DSL instead of XML</li>
+              <li>Gradle Wrapper</li>
+              <li>Documentation awesome with Gradle</li>
+              <li>Gradle Daemon for faster builds</li>
+              <li>Both uses maven repository</li>
+              <li>No boilerplate</li>
+              <li>Convention over configuration</li
+          </ul>
+        </section>
+
+        <section>
+          <h3>Maven vs Gradle example 1</h3>
+
+        </section>
+
+
+        <section>
+          <h3>Maven vs Gradle dependencies</h3>
+
+        </section>
+
+        <section>
+            <h3>Maven vs Gradle FatJar/OneJar</h3>
+
+        </section>
+
+        <section>
+          <h3>Maven vs Gradle dependencies</h3>
+
+        </section>
+        <section>
+          <h3>Gradle Tasks</h3>
+
+        </section>
+
+        <section>
+          <h3>Gradle Plugins</h3>
+
+        </section>
+
+        <section>
+        <h2>Gradle structure</h2>
+          <pre><code data-trim contenteditable style="font-size: 18px; margin-top: 20px;">
+conversation application/
+└── build.gradle       # Contains build script
+└── gradlew            # Downloads gradle
+└── wrapper
+    ├── gradle-wrapper.jar
+    └── gradle-wrapper.properties
+          </code></pre>
+        </section>
+
+        <section>
+        <h2>Minimal Gradle #1</h2>
+          <pre><code data-trim contenteditable style="font-size: 18px; margin-top: 20px;">
+# empty build.gradle
+  </code></pre>
+        </section>
+
+        <section>
+        <h2>Minimal Gradle #2</h2>
+          <pre><code data-trim contenteditable style="font-size: 18px; margin-top: 20px;">
+# build.gradle
+
+apply plugin:'java'
+apply plugin: 'jetty'
+
+group = 'org.springframework.samples'
+version = '1.0.0-SNAPSHOT'
+
+description = "petclinic"
+
+sourceCompatibility = 1.7
+targetCompatibility = 1.7
+
+repositories {
+
+     maven { url "http://repo.maven.apache.org/maven2" }
+}
+
+dependencies {
+    compile group: 'org.hibernate', name: 'hibernate', version:'3.1.0'
+    compile 'org.hibernate:hibernate-core:3.6.7'
+}
+
+  </code></pre>
+        </section>
+
+        <section>
+        <h2>Gradle Wrapper</h2>
+          <p>Minimal wrapper to download and use specified Gradle version.</p>
+          <pre><code data-trim contenteditable style="font-size: 18px; margin-top: 20px;">
+./gradlew tasks  # Downloads gradle and runs command to show tasks
+          </code></pre>
+        </section>
+
+        <section>
+        <h2>Custom Gradle tasks</h2>
+          <p>Minimal wrapper to download and use specified Gradle version.</p>
+        </section>
+
+        <section>
+          <h2>Apply magic</h2>
+      <pre><code data-trim contenteditable style="font-size: 18px; margin-top: 20px;">
+# Add to gradle.properties in folder ~/.gradle
+
+org.gradle.daemon=true
+          </code>
+          </pre>
+        </section>
+
+        <section>
+        <h2>Get started from terminal</h2>
+          <pre><code data-trim contenteditable style="font-size: 18px; margin-top: 20px;">
+$ ./gradlew tasks   # Lists all tasks available
+
+$ ./gradlew jettyRun   # Builds and run on jetty
+
+$ ./gradlew jettyRunWar  # Builds and run war on jetty
+
+$ ./gradlew build
+
+        </code></pre>
+        </section>
+
+        <section>
+          <h3>Master your tool</h3>
+          <blockquote>
+            “I’ve known people who have not mastered their tools who are good programmers, but not a tool master who remained a mediocre programmer.” – Kent Beck
+          </blockquote>
+        </section>
+        <section>
+         <h2>Questions?</h2>
+         <br/>
+          <a href="#">
+              <img src="http://media.tumblr.com/c15fa7aa6f698670350588df51040eba/tumblr_inline_mqdaevWXam1qz4rgp.png">
+          </a>
+        </section>
+
+      </div>
+
+    </div>
+
+    <script src="lib/js/head.min.js"></script>
+    <script src="js/reveal.min.js"></script>
+
+    <script>
+
+      // Full list of configuration options available here:
+      // https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+        controls: false,
+        progress: true,
+        history: true,
+        center: true,
+        rollingLinks: false,
+
+        theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+        transition: Reveal.getQueryHash().transition || 'linear', // default/cube/page/concave/zoom/linear/fade/none
+
+        // Optional libraries used to extend on reveal.js
+        dependencies: [
+          { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+          { src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+          { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+          { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+          { src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+          { src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+          // { src: 'plugin/leap/leap.js', async: true }
+          // { src: 'plugin/search/search.js', async: true, condition: function() { return !!document.body.classList; } }
+          // { src: 'plugin/remotes/remotes.js', async: true, condition: function() { return !!document.body.classList; } }
+        ]
+      });
+
+    </script>
+
+  </body>
+</html>
