@@ -27,4 +27,7 @@ dependencies {
     testCompile(group: 'com.sun.jersey.jersey-test-framework', name: 'jersey-test-framework-grizzly', version:'1.17.1') {
 exclude(module: 'junit')
     }
+    compile 'com.sun.jersey:jersey-core:1.18.1'
+    testCompile 'com.sun.jersey.jersey-test-framework:jersey-test-framework-grizzly:1.18.1'
+    testCompile 'com.sun.jersey.jersey-test-framework:jersey-test-framework-core:1.18.1'
 }
