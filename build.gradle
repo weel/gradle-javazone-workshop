@@ -1,5 +1,7 @@
 apply plugin: 'java'
-apply plugin: 'maven'
+
+apply plugin: 'gradle-one-jar'
+
 
 group = 'no.iterate'
 version = '0.0.1-SNAPSHOT'
@@ -11,8 +13,21 @@ targetCompatibility = 1.6
 
 
 repositories {
-     maven { url "http://repo.maven.apache.org/maven2" }
+     mavenCentral()
 }
+
+// Add Gradle OneJar Plugin, see https://github.com/rholder/gradle-one-jar
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+
+    dependencies {
+        classpath 'com.github.rholder:gradle-one-jar:1.0.3'
+    }
+}
+
+mainClassName = 'no.iterate.restify.rs.Restify'
 
 dependencies {
     compile 'com.sun.jersey:jersey-server:1.18.1'
@@ -28,4 +43,9 @@ dependencies {
 
     testCompile 'com.sun.jersey.jersey-test-framework:jersey-test-framework-grizzly:1.18.1'
     testCompile 'com.sun.jersey.jersey-test-framework:jersey-test-framework-core:1.18.1'
+}
+
+// Configure the oneJar task
+task oneJar(type: OneJar) {
+    mainClass = mainClassName
 }
