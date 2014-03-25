@@ -49,18 +49,28 @@
 
         </section>
 
-        <section>
-          <h3>Agenda</h3>
+        <section id="fragments">
+        <h3>Expected outcome?</h3>
+     
           <ul>
-            <li>Motivation & Background</li>
-            <li>Maven vs Gradle vs Ant</li>
-            <li>Gradle Intro</li>
-            <li>Build Java webapps with Gradle</li>
-            <li>Migrating from Maven to Gradle</li>
-            <li>Gradle tips & Tricks</li>
-            <li>Bonus</li>
+            <li class="fragment">Be able to ...</li>          
+            <li class="fragment">migrate from Maven to Gradle</li>
           </ul>
+        </section>
 
+
+        <section id="fragments">
+        <h3>Agenda</h3>
+     
+          <ul>
+            <li class="fragment">Motivation & Background</li>
+            <li class="fragment">Maven vs Gradle vs Ant</li>
+            <li class="fragment">Gradle Intro</li>
+            <li class="fragment">Build Java Webapps with Gradle</li>
+            <li class="fragment">Migrating from Maven to Gradle</li>
+            <li class="fragment">Gradle tips & Tricks</li>
+            <li class="fragment">Bonus</li>
+          </ul>
         </section>
 
         <section>
@@ -68,48 +78,74 @@
               <img  src="http://zeroturnaround.com/wp-content/uploads/2014/01/build-tools-popularity-2010-to-2013.jpg">
           </a>
         </section>
-        <section>
+        <section id="fragments">
           <h3>Why choose Gradle over Maven</h3>
           <ul>
-              <li>DSL instead of XML</li>
-              <li>Gradle Wrapper</li>
-              <li>Documentation awesome with Gradle</li>
-              <li>Gradle Daemon for faster builds</li>
-              <li>Both uses maven repository</li>
-              <li>No boilerplate</li>
-              <li>Convention over configuration</li
+              <li class="fragment">DSL instead of XML</li>
+              <li class="fragment">Gradle Wrapper</li>
+              <li class="fragment">Documentation is awesome</li>
+              <li class="fragment">Both uses maven repository</li>
+              <li class="fragment">No boilerplate</li>
+              <li class="fragment">Convention over configuration</li>
+              <li class="fragment">Gradle Daemon for faster builds</li>
           </ul>
         </section>
-
         <section>
-          <h3>Maven vs Gradle example 1</h3>
-
+        <h2>From Zero to Hero</h2>
         </section>
 
-
-        <section>
-          <h3>Maven vs Gradle dependencies</h3>
-
+        <section id="fragment">
+          <h3>Task 1</h3>
+          <ol>
+            <li class="fragment">Install gradle</li>
+            <li class="fragment">Run 'gradle init' in an empty folder </li>
+            <li class="fragment">Run 'gradle tasks' to get a list of all tasks available</li>  
+          </ol>
         </section>
 
-        <section>
-            <h3>Maven vs Gradle FatJar/OneJar</h3>
-
-        </section>
-
-        <section>
-          <h3>Maven vs Gradle dependencies</h3>
-
-        </section>
         <section>
           <h3>Gradle Tasks</h3>
+          <a href="http://www.gradle.org/docs/current/dsl/org.gradle.api.Task.html">Documentation</a>
+                    <pre><code data-trim contenteditable style="font-size: 18px; margin-top: 20px;">
+task copyPoems(type: Copy) {
+  from 'text-files'
+  into 'build/poems'
+}          </code></pre>
 
         </section>
 
         <section>
           <h3>Gradle Plugins</h3>
+ <a href="http://www.gradle.org/plugins">Documentation</a>
+                    <pre><code data-trim contenteditable style="font-size: 18px; margin-top: 20px;">
+apply plugin: 'java'
+
+#Other common plugins: android, jetty, maven +++
+</code></pre>
 
         </section>
+
+        <section>
+          <h3>Maven vs Gradle dependencies</h3>
+          <pre><code data-trim contenteditable style="font-size: 18px; margin-top: 20px;">
+       <dependency>
+    <groupId>com.google.guava</groupId>
+    <artifactId>guava</artifactId>
+    <version>16.0.1</version>
+</dependency>
+
+
+compile 'com.google.guava:guava:16.0.1'
+# Or
+compile group:'com.google.guava' name: 'guava' version: '16.0.1'
+       </code></pre>
+        </section>
+
+        <section>
+            <h3>Maven vs Gradle FatJar/OneJar</h3>
+        </section>
+
+
 
         <section>
         <h2>Gradle structure</h2>
@@ -194,6 +230,11 @@ $ ./gradlew jettyRunWar  # Builds and run war on jetty
 $ ./gradlew build
 
         </code></pre>
+        </section>
+        <section>
+         <h2>Bonus</h2>
+         <br/>
+         <a href="http://mrhaki.blogspot.de/search/label/Gradle%3AGoodness">Gradle Goodness</a>
         </section>
 
         <section>
