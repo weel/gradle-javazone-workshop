@@ -1,3 +1,7 @@
 .classpath
 .project
 .settings
+.gradle
+/*/*/build
+/target
+dependency-reduced-pom.xml
