@@ -6,7 +6,7 @@ apply plugin: 'gradle-one-jar'
 group = 'no.iterate'
 version = '0.0.1-SNAPSHOT'
 
-description = """Restify"""
+description = """Gradle Workshop"""
 
 sourceCompatibility = 1.6
 targetCompatibility = 1.6
@@ -27,6 +27,7 @@ buildscript {
     }
 }
 
+// Should be replaced by properties.
 mainClassName = 'no.iterate.restify.rs.Restify'
 
 dependencies {
@@ -49,3 +50,8 @@ dependencies {
 task oneJar(type: OneJar) {
     mainClass = mainClassName
 }
+
+task wrapper(type:Wrapper) {
+    gradleVersion = '1.11'
+    // Using distributionUrl = 'http://gradle.iterate.no/gradle-1.2-bin.zip'
+}   
