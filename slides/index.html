@@ -6,8 +6,8 @@
 
     <title>Workshop - Gradle vs Maven</title>
 
-    <meta name="description" content="A framework for easily creating beautiful presentations using HTML">
-    <meta name="author" content="Hakim El Hattab">
+    <meta name="description" content="Java">
+    <meta name="author" content="Morten Weel Johnsen">
 
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
@@ -38,14 +38,14 @@
       <div class="slides">
         <section data-state="inverted">
           <h2>Workshop</h2>
-          <h3>Gradle vs Maven</h3>
+          <h3>Let Gradle build your Java apps</h3>
           <small>github.com/weel/gradle-java-workshop</small>
           <br/>
           <a href="#">
-              <img width="300" height="300" src="http://www.catosplace.net/blogs/personal/wp-content/uploads/2010/05/arrested.jpg">
+              <img width="300" height="300" src="">
           </a>
           <br/>
-          <small>Switch before its too late...</small>
+          <small></small>
 
         </section>
 
@@ -231,12 +231,14 @@ $ ./gradlew build
 
         </code></pre>
         </section>
+
         <section>
          <h2>Bonus</h2>
          <br/>
          <a href="http://mrhaki.blogspot.de/search/label/Gradle%3AGoodness">Gradle Goodness</a>
         </section>
 
+       <section>
        <h2>Feedback from gradle</h2>
           <pre><code data-trim contenteditable style="font-size: 18px; margin-top: 20px;">
 
@@ -251,6 +253,7 @@ task info {
         </code></pre>
         </section>
 
+      <section>
       <h2>Encoding UTF-8</h2>
           <pre><code data-trim contenteditable style="font-size: 18px; margin-top: 20px;">
 #For specific task compileJava
@@ -266,6 +269,7 @@ tasks.withType(Compile) {
         </code></pre>
         </section>
 
+      <section>
       <h2>Profiling</h2>
           <pre><code data-trim contenteditable style="font-size: 18px; margin-top: 20px;">
 $ gradle --profile build
@@ -285,10 +289,7 @@ $ gradle --profile build
         <section>
          <h2>Questions?</h2>
          <br/>
-          <a href="#">
-              <img src="http://media.tumblr.com/c15fa7aa6f698670350588df51040eba/tumblr_inline_mqdaevWXam1qz4rgp.png">
-          </a>
-        </section>
+         </section>
 
       </div>
 
@@ -299,8 +300,6 @@ $ gradle --profile build
 
     <script>
 
-      // Full list of configuration options available here:
-      // https://github.com/hakimel/reveal.js#configuration
       Reveal.initialize({
         controls: false,
         progress: true,
@@ -319,9 +318,6 @@ $ gradle --profile build
           { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
           { src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
           { src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
-          // { src: 'plugin/leap/leap.js', async: true }
-          // { src: 'plugin/search/search.js', async: true, condition: function() { return !!document.body.classList; } }
-          // { src: 'plugin/remotes/remotes.js', async: true, condition: function() { return !!document.body.classList; } }
         ]
       });
 
