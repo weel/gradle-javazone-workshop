@@ -1,6 +1,14 @@
-apply plugin: 'java'
+buildscript {
+    repositories {
+        jcenter()
+    }
+    dependencies {
+        classpath 'com.github.jengelman.gradle.plugins:shadow:0.8'
+    }
+}
 
-apply plugin: 'gradle-one-jar'
+apply plugin: 'java'
+apply plugin: 'shadow'
 
 
 group = 'no.iterate'
@@ -26,12 +34,17 @@ buildscript {
         classpath 'com.github.rholder:gradle-one-jar:1.0.3'
     }
 }
+shadow { exclude 'META-INF/*.*SA' }
 
-// Should be replaced by properties.
 
-mainClassName = 'no.iterate.restify.rs.Restify'
-jerseyVersion = '1.18.1'
+jar {
+    manifest { attributes 'Main-Class': 'no.iterate.restify.rs.Restify' }
+}
 
+
+ext {
+    jerseyVersion = '1.18.1'
+}
 dependencies {
     compile 'com.sun.jersey:jersey-server:$jerseyVersion'
     compile 'com.sun.jersey:jersey-servlet:1.18.1'
@@ -48,10 +61,7 @@ dependencies {
     testCompile 'com.sun.jersey.jersey-test-framework:jersey-test-framework-core:1.18.1'
 }
 
-// Configure the oneJar task
-task oneJar(type: OneJar) {
-    mainClass = mainClassName
-}
+
 
 task wrapper(type:Wrapper) {
     gradleVersion = '1.11'

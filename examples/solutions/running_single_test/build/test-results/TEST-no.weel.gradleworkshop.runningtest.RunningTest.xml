@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="no.weel.gradleworkshop.runningtest.RunningTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2014-09-07T18:34:58" hostname="Mortens-MacBook-Pro.local" time="0.001">
+  <properties/>
+  <testcase name="gradle_better_than_maven" classname="no.weel.gradleworkshop.runningtest.RunningTest" time="0.001"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

@@ -1,0 +1,49 @@
+buildscript {
+  repositories { jcenter() }
+  dependencies {
+    classpath 'com.github.jengelman.gradle.plugins:shadow:1.1.1'
+  }
+}
+
+apply plugin: 'java'
+apply plugin: 'com.github.johnrengelman.shadow'
+
+group = 'io.dropwizard'
+version = '0.7.1'
+
+description = """Dropwizard Example Application"""
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+configurations.all {
+}
+
+jar {
+    manifest { attributes 'Main-Class': 'com.example.helloworld.HelloWorldApplication' }
+}
+
+// Configure the shadow jar task
+shadowJar {
+    mergeServiceFiles()
+    exclude 'META-INF/*.DSA'
+    exclude 'META-INF/*.RSA'
+}
+
+repositories {
+        
+     maven { url "http://oss.sonatype.org/content/repositories/snapshots" }
+     maven { url "http://repo.maven.apache.org/maven2" }
+}
+dependencies {
+    compile group: 'io.dropwizard', name: 'dropwizard-core', version:'0.7.1'
+    compile group: 'io.dropwizard', name: 'dropwizard-auth', version:'0.7.1'
+    compile group: 'io.dropwizard', name: 'dropwizard-assets', version:'0.7.1'
+    compile group: 'io.dropwizard', name: 'dropwizard-spdy', version:'0.7.1'
+    compile group: 'io.dropwizard', name: 'dropwizard-hibernate', version:'0.7.1'
+    compile group: 'io.dropwizard', name: 'dropwizard-migrations', version:'0.7.1'
+    compile group: 'io.dropwizard', name: 'dropwizard-views-freemarker', version:'0.7.1'
+    compile group: 'io.dropwizard', name: 'dropwizard-views-mustache', version:'0.7.1'
+    compile group: 'com.h2database', name: 'h2', version:'1.4.178'
+    testCompile group: 'io.dropwizard', name: 'dropwizard-testing', version:'0.7.1'
+}
