@@ -42,7 +42,7 @@
           <small>github.com/weel/gradle-java-workshop</small>
           <br/>
           <a href="#">
-              <img width="300" height="300" src="">
+              <img width="300" height="300" src="http://imgs.xkcd.com/comics/compiling.png">
           </a>
           <br/>
           <small></small>
@@ -51,22 +51,26 @@
 
         <section>
         <h3>Expected outcome?</h3>
-     
+
+            <br/>
+          <h4 class="fragment">Be able to ...</h4>
+
           <ul>
-            <li class="fragment">Be able to ...</li>          
-            <li class="fragment">migrate from Maven to Gradle</li>
+            <li class="fragment">Build java applications with Gradle</li>
+            <li class="fragment">Migrate from Maven to Gradle</li>
           </ul>
         </section>
 
 
         <section>
         <h3>Agenda</h3>
-     
+
           <ul>
             <li class="fragment">Motivation & Background</li>
             <li class="fragment">Maven vs Gradle vs Ant</li>
             <li class="fragment">Gradle Intro</li>
             <li class="fragment">Build Java Webapps with Gradle</li>
+            <li class="fragment">Break</li>
             <li class="fragment">Migrating from Maven to Gradle</li>
             <li class="fragment">Gradle tips & Tricks</li>
             <li class="fragment">Bonus</li>
@@ -90,18 +94,31 @@
               <li class="fragment">Gradle Daemon for faster builds</li>
           </ul>
         </section>
-        <section>
-        <h2>From Zero to Hero</h2>
+
+        <section id="fragment">
+          <h3>Clone repository</h3>
+          <ol>
+            <li class="fragment">git@github.com:weel/gradle-java-workshop.git</li>
+           </ol>
+        </section>
+
+
+
+        <section id="fragment">
+          <h3>Task 1 - Getting started</h3>
+          <ol>
+            <li class="fragment">Download from http://www.gradle.org/</li>
+            <li class="fragment">Install gradle/Add to path</li>
+            <li class="fragment">Run 'gradle init' in an empty folder </li>
+            <li class="fragment">Run 'gradle tasks' to get a list of all tasks available</li>
+          </ol>
         </section>
 
         <section id="fragment">
-          <h3>Task 1</h3>
-          <ol>
-            <li class="fragment">Install gradle</li>
-            <li class="fragment">Run 'gradle init' in an empty folder </li>
-            <li class="fragment">Run 'gradle tasks' to get a list of all tasks available</li>  
-          </ol>
-        </section>
+          <h3>Projects and tasks</h3>
+            <small>Everything in Gradle sits on top of two basic concepts: projects and tasks</small>
+          </section>
+
 
         <section>
           <h3>Gradle Tasks</h3>
@@ -126,6 +143,63 @@ apply plugin: 'java'
         </section>
 
         <section>
+          <h3>The Java plugin</h3>
+ <a href="http://www.gradle.org/plugins">Documentation</a>
+                    <pre><code data-trim contenteditable style="font-size: 18px; margin-top: 20px;">
+apply plugin: 'java'
+
+#Other common plugins: android, jetty, maven +++
+</code></pre>
+                 <a href="http://www.gradle.org/docs/current/userguide/img/javaPluginTasks.png"><img width="1250" height="329" src="http://www.gradle.org/docs/current/userguide/img/javaPluginTasks.png"></a>
+
+
+        </section>
+
+          <section>
+          <div class="table"><p class="title"><b>Table&nbsp;23.4.&nbsp;Java plugin - default project layout</b></p><div class="table-contents"><table id="javalayout"><thead><tr>
+                    <td>Directory</td>
+                    <td></td>
+                    <td>Meaning</td>
+                </tr></thead><tbody><tr>
+        <td>
+            <code class="filename">src/main/java</code>
+        </td>
+        <td></td>
+        <td>Production Java source</td>
+    </tr><tr>
+        <td>
+            <code class="filename">src/main/resources</code>
+        </td>
+        <td></td>
+        <td>Production resources</td>
+    </tr><tr>
+        <td>
+            <code class="filename">src/test/java</code>
+        </td>
+        <td></td>
+        <td>Test Java source</td>
+    </tr><tr>
+        <td>
+            <code class="filename">src/test/resources</code>
+        </td>
+        <td></td>
+        <td>Test resources</td>
+    </tr><tr>
+        <td>
+            <code class="filename">src/<em class="replaceable"><code>sourceSet</code></em>/java</code>
+        </td>
+        <td></td>
+        <td>Java source for the given source set</td>
+    </tr><tr>
+        <td>
+            <code class="filename">src/<em class="replaceable"><code>sourceSet</code></em>/resources</code>
+        </td>
+        <td></td>
+        <td>Resources for the given source set</td>
+    </tr></tbody></table></div></div></section>
+
+
+        <section>
           <h3>Maven vs Gradle dependencies</h3>
           <pre><code data-trim contenteditable style="font-size: 18px; margin-top: 20px;">
        <dependency>
@@ -142,7 +216,8 @@ compile group:'com.google.guava' name: 'guava' version: '16.0.1'
         </section>
 
         <section>
-            <h3>Maven vs Gradle FatJar/OneJar</h3>
+            <h3>Gradle ShadowJar plugin</h3>
+
         </section>
 
 
@@ -150,7 +225,7 @@ compile group:'com.google.guava' name: 'guava' version: '16.0.1'
         <section>
         <h2>Gradle structure</h2>
           <pre><code data-trim contenteditable style="font-size: 18px; margin-top: 20px;">
-conversation application/
+application/
 └── build.gradle       # Contains build script
 └── gradlew            # Downloads gradle
 └── wrapper
@@ -205,8 +280,8 @@ dependencies {
 
         <section>
         <h2>Custom Gradle tasks</h2>
-          <p>Minimal wrapper to download and use specified Gradle version.</p>
-        </section>
+
+          </section>
 
         <section>
           <h2>Apply magic</h2>
@@ -238,21 +313,6 @@ $ ./gradlew build
          <a href="http://mrhaki.blogspot.de/search/label/Gradle%3AGoodness">Gradle Goodness</a>
         </section>
 
-       <section>
-       <h2>Feedback from gradle</h2>
-          <pre><code data-trim contenteditable style="font-size: 18px; margin-top: 20px;">
-
-        apply plugin: 'announce'
-
-task info {
-    doLast {
-        announce.announce "Running $it.name", 'local'
-        println gradle.gradleVersion
-    }
-}
-        </code></pre>
-        </section>
-
       <section>
       <h2>Encoding UTF-8</h2>
           <pre><code data-trim contenteditable style="font-size: 18px; margin-top: 20px;">
@@ -276,7 +336,7 @@ $ gradle --profile build
 
         </code></pre>
                 <img src="http://4.bp.blogspot.com/_-vJw6r2W-bw/TOWZ-RYtrMI/AAAAAAAAEHg/oy1akB42uRk/s640/Screen+shot+2010-11-18+at+10.19.57+PM.png">
-      
+
         </section>
 
 
