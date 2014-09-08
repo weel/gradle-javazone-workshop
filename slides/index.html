@@ -4,16 +4,13 @@
   <head>
     <meta charset="utf-8">
 
-    <title>Workshop - Gradle vs Maven</title>
+    <title>Workshop - Building Java with Gradle</title>
 
     <meta name="description" content="Java">
     <meta name="author" content="Morten Weel Johnsen">
-
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-
     <link rel="stylesheet" href="css/reveal.min.css">
     <link rel="stylesheet" href="css/theme/iterate.css" id="theme">
 
@@ -49,6 +46,9 @@
 
         </section>
 
+        <!-- Slide 1 - Expected outcome -->
+        <!-- Slide 1 - Expected outcome -->
+
         <section>
         <h3>Expected outcome?</h3>
 
@@ -61,6 +61,7 @@
           </ul>
         </section>
 
+        <!-- Slide 2 - Agenda -->
 
         <section>
         <h3>Agenda</h3>
@@ -77,11 +78,17 @@
           </ul>
         </section>
 
+        <!-- Slide 3 - Comparison of popularity -->
+
+
         <section>
           <a href="#">
               <img  src="http://zeroturnaround.com/wp-content/uploads/2014/01/build-tools-popularity-2010-to-2013.jpg">
           </a>
         </section>
+
+        <!-- Slide 4 - Why choose gradle over Maven -->
+
         <section id="fragments">
           <h3>Why choose Gradle over Maven</h3>
           <ul>
@@ -95,13 +102,17 @@
           </ul>
         </section>
 
+        <!-- Slide 5 - Getting started - Clone repo -->
+
         <section id="fragment">
-          <h3>Clone repository</h3>
-          <ol>
-            <li class="fragment">git@github.com:weel/gradle-java-workshop.git</li>
-           </ol>
+          <h3>Getting started:</h3>
+
+            git clone git@github.com:weel/gradle-java-workshop.git
+
         </section>
 
+
+       <!-- Slide 5 - Getting started with gradle -->
 
 
         <section id="fragment">
@@ -114,11 +125,16 @@
           </ol>
         </section>
 
+
+        <!-- Slide 6 - Projects and tasks -->
+
         <section id="fragment">
           <h3>Projects and tasks</h3>
             <small>Everything in Gradle sits on top of two basic concepts: projects and tasks</small>
           </section>
 
+
+        <!-- Slide 7 - Gradle tasks -->
 
         <section>
           <h3>Gradle Tasks</h3>
@@ -131,7 +147,9 @@ task copyPoems(type: Copy) {
 
         </section>
 
-        <section>
+        <!-- Slide 7 - Gradle plugins -->
+
+          <section>
           <h3>Gradle Plugins</h3>
  <a href="http://www.gradle.org/plugins">Documentation</a>
                     <pre><code data-trim contenteditable style="font-size: 18px; margin-top: 20px;">
@@ -141,6 +159,8 @@ apply plugin: 'java'
 </code></pre>
 
         </section>
+
+        <!-- Slide 8 - The java plugin -->
 
         <section>
           <h3>The Java plugin</h3>
@@ -154,6 +174,8 @@ apply plugin: 'java'
 
 
         </section>
+
+        <!-- Slide 9 - Java plugin, directory structure -->
 
           <section>
           <div class="table"><p class="title"><b>Table&nbsp;23.4.&nbsp;Java plugin - default project layout</b></p><div class="table-contents"><table id="javalayout"><thead><tr>
@@ -199,6 +221,8 @@ apply plugin: 'java'
     </tr></tbody></table></div></div></section>
 
 
+        <!-- Slide 10 - dependencies -->
+
         <section>
           <h3>Maven vs Gradle dependencies</h3>
           <pre><code data-trim contenteditable style="font-size: 18px; margin-top: 20px;">
@@ -215,12 +239,16 @@ compile group:'com.google.guava' name: 'guava' version: '16.0.1'
        </code></pre>
         </section>
 
+
+        <!-- Slide 11 - Gradle ShadowJar -->
+
         <section>
             <h3>Gradle ShadowJar plugin</h3>
 
         </section>
 
 
+        <!-- Slide 12 - Gradle structure -->
 
         <section>
         <h2>Gradle structure</h2>
@@ -234,6 +262,9 @@ application/
           </code></pre>
         </section>
 
+
+        <!-- Slide 13 - Minimal gradle -->
+
         <section>
         <h2>Minimal Gradle #1</h2>
           <pre><code data-trim contenteditable style="font-size: 18px; margin-top: 20px;">
@@ -241,6 +272,8 @@ application/
   </code></pre>
         </section>
 
+
+        <!-- Slide 14 - Minimal gradle 2  -->
         <section>
         <h2>Minimal Gradle #2</h2>
           <pre><code data-trim contenteditable style="font-size: 18px; margin-top: 20px;">
@@ -254,8 +287,8 @@ version = '1.0.0-SNAPSHOT'
 
 description = "petclinic"
 
-sourceCompatibility = 1.7
-targetCompatibility = 1.7
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
 
 repositories {
 
@@ -270,6 +303,7 @@ dependencies {
   </code></pre>
         </section>
 
+        <!-- Slide 15 - Gradle wrapper -->
         <section>
         <h2>Gradle Wrapper</h2>
           <p>Minimal wrapper to download and use specified Gradle version.</p>
@@ -278,20 +312,15 @@ dependencies {
           </code></pre>
         </section>
 
+        <!-- Slide 16 - Custom tasks -->
         <section>
         <h2>Custom Gradle tasks</h2>
 
           </section>
 
-        <section>
-          <h2>Apply magic</h2>
-      <pre><code data-trim contenteditable style="font-size: 18px; margin-top: 20px;">
-# Add to gradle.properties in folder ~/.gradle
+        <!-- Slide 17 - Custom tasks -->
 
-org.gradle.daemon=true
-          </code>
-          </pre>
-        </section>
+
 
         <section>
         <h2>Get started from terminal</h2>
@@ -311,6 +340,16 @@ $ ./gradlew build
          <h2>Bonus</h2>
          <br/>
          <a href="http://mrhaki.blogspot.de/search/label/Gradle%3AGoodness">Gradle Goodness</a>
+        </section>
+
+      <section>
+          <h2>Handy trick</h2>
+          <pre><code data-trim contenteditable style="font-size: 18px; margin-top: 20px;">
+# Add to gradle.properties in folder ~/.gradle
+
+org.gradle.daemon=true
+          </code>
+          </pre>
         </section>
 
       <section>
