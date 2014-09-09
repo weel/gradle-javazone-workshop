@@ -1,27 +1,9 @@
-Gradle vs Maven Workshop
+Workshop - Build java apps with gradle.
 =======
 
-This gradle workshop builds on the simple Restify application which consists of a minimal Java REST application using Jersey. 
+Minimal Java REST application using Jersey, packaged as an executable JAR with an embedded Jetty web server thats based on https://github.com/iterate/restify.
 
 
-The different steps from the presentation, which can be found in the /presentation/ folder, is synced to the different commit steps here.
-
-Prerequesites for the workshop:
-- Gradle
-- IntelliJ
-- 
-
-1) Intro to gradle 
-
-
-2) 
-
-
-3)
-
-
-4)
-
-
-
-
+Task )
+This task is about migrating from Maven to Gradle manually.
+We will also look at how to automate it.

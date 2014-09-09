@@ -7,6 +7,7 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 
 @Path("/") // This controller should handle requests to "/"
@@ -16,11 +17,16 @@ public class RootResource {
     @GET // Handler for GET-requests
     public Response getProjectRootResource() {
 
-        List<ExampleEntity> entities = new ArrayList<RootResource.ExampleEntity>();
+        List<ExampleEntity> entities = new ArrayList<ExampleEntity>();
         entities.add(new ExampleEntity("Alice Example", 42));
         entities.add(new ExampleEntity("Bob Example", 52));
 
-        return Response.ok(entities).build();
+        List<ExampleEntity> filtered = entities.stream()
+                .filter((c) -> c.age < 50)
+                .collect(Collectors.toList());
+
+        return Response.ok(filtered).build();
+
     }
 
     /**

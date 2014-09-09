@@ -1,133 +1,204 @@
 <!doctype html>
 <html lang="en">
-
-  <head>
-    <meta charset="utf-8">
-
-    <title>Workshop - Gradle vs Maven</title>
-
-    <meta name="description" content="Java">
-    <meta name="author" content="Morten Weel Johnsen">
-
-    <meta name="apple-mobile-web-app-capable" content="yes" />
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-
-    <link rel="stylesheet" href="css/reveal.min.css">
-    <link rel="stylesheet" href="css/theme/iterate.css" id="theme">
-
-    <!-- For syntax highlighting -->
-    <link rel="stylesheet" href="lib/css/github.css">
-
-    <!-- If the query includes 'print-pdf', use the PDF print sheet -->
-    <script>
-      document.write( '<link rel="stylesheet" href="css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
-    </script>
-
-    <!--[if lt IE 9]>
-    <script src="lib/js/html5shiv.js"></script>
-    <![endif]-->
-  </head>
-
-  <body>
-
-    <div class="reveal">
-
-      <!-- Any section element inside of this container is displayed as a slide -->
-      <div class="slides">
-        <section data-state="inverted">
-          <h2>Workshop</h2>
-          <h3>Let Gradle build your Java apps</h3>
-          <small>github.com/weel/gradle-java-workshop</small>
-          <br/>
-          <a href="#">
-              <img width="300" height="300" src="">
-          </a>
-          <br/>
-          <small></small>
-
-        </section>
-
-        <section id="fragments">
-        <h3>Expected outcome?</h3>
-     
-          <ul>
-            <li class="fragment">Be able to ...</li>          
-            <li class="fragment">migrate from Maven to Gradle</li>
-          </ul>
-        </section>
-
-
-        <section id="fragments">
-        <h3>Agenda</h3>
-     
-          <ul>
-            <li class="fragment">Motivation & Background</li>
-            <li class="fragment">Maven vs Gradle vs Ant</li>
-            <li class="fragment">Gradle Intro</li>
-            <li class="fragment">Build Java Webapps with Gradle</li>
-            <li class="fragment">Migrating from Maven to Gradle</li>
-            <li class="fragment">Gradle tips & Tricks</li>
-            <li class="fragment">Bonus</li>
-          </ul>
-        </section>
-
-        <section>
-          <a href="#">
-              <img  src="http://zeroturnaround.com/wp-content/uploads/2014/01/build-tools-popularity-2010-to-2013.jpg">
-          </a>
-        </section>
-        <section id="fragments">
-          <h3>Why choose Gradle over Maven</h3>
-          <ul>
-              <li class="fragment">DSL instead of XML</li>
-              <li class="fragment">Gradle Wrapper</li>
-              <li class="fragment">Documentation is awesome</li>
-              <li class="fragment">Both uses maven repository</li>
-              <li class="fragment">No boilerplate</li>
-              <li class="fragment">Convention over configuration</li>
-              <li class="fragment">Gradle Daemon for faster builds</li>
-          </ul>
-        </section>
-        <section>
-        <h2>From Zero to Hero</h2>
-        </section>
-
-        <section id="fragment">
-          <h3>Task 1</h3>
-          <ol>
-            <li class="fragment">Install gradle</li>
-            <li class="fragment">Run 'gradle init' in an empty folder </li>
-            <li class="fragment">Run 'gradle tasks' to get a list of all tasks available</li>  
-          </ol>
-        </section>
-
-        <section>
-          <h3>Gradle Tasks</h3>
-          <a href="http://www.gradle.org/docs/current/dsl/org.gradle.api.Task.html">Documentation</a>
-                    <pre><code data-trim contenteditable style="font-size: 18px; margin-top: 20px;">
+   <head>
+      <meta charset="utf-8">
+      <title>Workshop - Building Java apps with Gradle</title>
+      <meta name="description" content="Java">
+      <meta name="author" content="Morten Weel Johnsen">
+      <meta name="apple-mobile-web-app-capable" content="yes" />
+      <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+      <link rel="stylesheet" href="css/reveal.min.css">
+      <link rel="stylesheet" href="css/theme/iterate.css" id="theme">
+      <!-- For syntax highlighting -->
+      <link rel="stylesheet" href="lib/css/github.css">
+      <!-- If the query includes 'print-pdf', use the PDF print sheet -->
+      <script>
+         document.write( '<link rel="stylesheet" href="css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
+      </script>
+      <!--[if lt IE 9]>
+      <script src="lib/js/html5shiv.js"></script>
+      <![endif]-->
+   </head>
+   <body>
+      <div class="reveal">
+         <!-- Any section element inside of this container is displayed as a slide -->
+         <div class="slides">
+            <section data-state="inverted">
+               <h2>Workshop</h2>
+               <h3>Let Gradle build your Java apps</h3>
+               <small>github.com/weel/gradle-java-workshop</small>
+               <br/>
+               <a href="#">
+               <img width="300" height="300" src="http://imgs.xkcd.com/comics/compiling.png">
+               </a>
+               <br/>
+               <small></small>
+            </section>
+            <!-- Slide 1 - Expected outcome -->
+            <section>
+               <h3>Expected outcome?</h3>
+               <br/>
+               <h4 class="fragment">Be able to ...</h4>
+               <ul>
+                  <li class="fragment">Build java applications with Gradle</li>
+                  <li class="fragment">Migrate from Maven to Gradle</li>
+               </ul>
+            </section>
+            <!-- Slide 2 - Agenda -->
+            <section>
+               <h3>Agenda</h3>
+               <ul>
+                  <li class="fragment">Motivation & Background</li>
+                  <li class="fragment">Maven vs Gradle vs Ant</li>
+                  <li class="fragment">Gradle Intro</li>
+                  <li class="fragment">Build Java Webapps with Gradle</li>
+                  <li class="fragment">Migrating from Maven to Gradle</li>
+                  <li class="fragment">Gradle tips & Tricks</li>
+                  <li class="fragment">Bonus</li>
+               </ul>
+            </section>
+            <!-- Slide 3 - Comparison of popularity -->
+            <section>
+               <a href="#">
+               <img  src="http://zeroturnaround.com/wp-content/uploads/2014/01/build-tools-popularity-2010-to-2013.jpg">
+               </a>
+            </section>
+            <!-- Slide 4 - Why choose gradle over Maven -->
+            <section id="fragments">
+               <h3>Why choose Gradle over Maven</h3>
+               <ul>
+                  <li class="fragment">DSL instead of XML</li>
+                  <li class="fragment">Gradle Wrapper</li>
+                  <li class="fragment">Documentation is awesome</li>
+                  <li class="fragment">Both uses maven repository</li>
+                  <li class="fragment">No boilerplate</li>
+                  <li class="fragment">Convention over configuration</li>
+                  <li class="fragment">Gradle Daemon for faster builds</li>
+               </ul>
+            </section>
+            <!-- Slide 5 - Getting started - Clone repo -->
+            <section id="fragment">
+               <h3>Getting started:</h3>
+               git clone git@github.com:weel/gradle-java-workshop.git
+            </section>
+            <!-- Slide 5 - Getting started with gradle -->
+            <section id="fragment">
+               <h3>Task 1 - Getting started</h3>
+               <ol>
+                  <li class="fragment">Download from http://www.gradle.org/</li>
+                  <li class="fragment">Install gradle/Add to path</li>
+                  <li class="fragment">Run 'gradle init' in an empty folder </li>
+                  <li class="fragment">Run 'gradle tasks' to get a list of all tasks available</li>
+               </ol>
+            </section>
+            <!-- Slide 6 - Projects and tasks -->
+            <section id="fragment">
+               <h3>Projects and tasks</h3>
+               <small>Everything in Gradle sits on top of two basic concepts: projects and tasks</small>
+            </section>
+            <!-- Slide 7 - Gradle tasks -->
+            <section>
+               <h3>Gradle Tasks</h3>
+               <a href="http://www.gradle.org/docs/current/dsl/org.gradle.api.Task.html">Documentation</a>
+               <pre><code data-trim contenteditable style="font-size: 18px; margin-top: 20px;">
 task copyPoems(type: Copy) {
   from 'text-files'
   into 'build/poems'
 }          </code></pre>
-
-        </section>
-
-        <section>
-          <h3>Gradle Plugins</h3>
- <a href="http://www.gradle.org/plugins">Documentation</a>
-                    <pre><code data-trim contenteditable style="font-size: 18px; margin-top: 20px;">
+            </section>
+            <!-- Slide 7 - Gradle plugins -->
+            <section>
+               <h3>Gradle Plugins</h3>
+               <a href="http://www.gradle.org/plugins">Documentation</a>
+               <pre><code data-trim contenteditable style="font-size: 18px; margin-top: 20px;">
 apply plugin: 'java'
 
 #Other common plugins: android, jetty, maven +++
 </code></pre>
+            </section>
+            <!-- Slide 8 - The java plugin -->
+            <section>
+               <h3>The Java plugin</h3>
+               <a href="http://www.gradle.org/plugins">Documentation</a>
+               <pre><code data-trim contenteditable style="font-size: 18px; margin-top: 20px;">
+apply plugin: 'java'
 
-        </section>
-
-        <section>
-          <h3>Maven vs Gradle dependencies</h3>
-          <pre><code data-trim contenteditable style="font-size: 18px; margin-top: 20px;">
+#Other common plugins: android, jetty, maven +++
+</code></pre>
+               <a href="http://www.gradle.org/docs/current/userguide/img/javaPluginTasks.png"><img width="1250" height="329" src="http://www.gradle.org/docs/current/userguide/img/javaPluginTasks.png"></a>
+            </section>
+            <section>
+               <h3>Archetypes</h3>
+               <pre><code data-trim contenteditable style="font-size: 18px; margin-top: 20px;">
+gradle init --type java-library
+       </code></pre>
+            </section>
+            <!-- Slide 9 - Java plugin, directory structure -->
+            <section>
+               <div class="table">
+                  <p class="title"><b>Table&nbsp;23.4.&nbsp;Java plugin - default project layout</b></p>
+                  <div class="table-contents">
+                     <table id="javalayout">
+                        <thead>
+                           <tr>
+                              <td>Directory</td>
+                              <td></td>
+                              <td>Meaning</td>
+                           </tr>
+                        </thead>
+                        <tbody>
+                           <tr>
+                              <td>
+                                 <code class="filename">src/main/java</code>
+                              </td>
+                              <td></td>
+                              <td>Production Java source</td>
+                           </tr>
+                           <tr>
+                              <td>
+                                 <code class="filename">src/main/resources</code>
+                              </td>
+                              <td></td>
+                              <td>Production resources</td>
+                           </tr>
+                           <tr>
+                              <td>
+                                 <code class="filename">src/test/java</code>
+                              </td>
+                              <td></td>
+                              <td>Test Java source</td>
+                           </tr>
+                           <tr>
+                              <td>
+                                 <code class="filename">src/test/resources</code>
+                              </td>
+                              <td></td>
+                              <td>Test resources</td>
+                           </tr>
+                           <tr>
+                              <td>
+                                 <code class="filename">src/<em class="replaceable"><code>sourceSet</code></em>/java</code>
+                              </td>
+                              <td></td>
+                              <td>Java source for the given source set</td>
+                           </tr>
+                           <tr>
+                              <td>
+                                 <code class="filename">src/<em class="replaceable"><code>sourceSet</code></em>/resources</code>
+                              </td>
+                              <td></td>
+                              <td>Resources for the given source set</td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+               </div>
+            </section>
+            <!-- Slide 10 - dependencies -->
+            <section>
+               <h3>Maven vs Gradle dependencies</h3>
+               <pre><code data-trim contenteditable style="font-size: 18px; margin-top: 20px;">
        <dependency>
     <groupId>com.google.guava</groupId>
     <artifactId>guava</artifactId>
@@ -139,36 +210,34 @@ compile 'com.google.guava:guava:16.0.1'
 # Or
 compile group:'com.google.guava' name: 'guava' version: '16.0.1'
        </code></pre>
-        </section>
-
-        <section>
-            <h3>Maven vs Gradle FatJar/OneJar</h3>
-        </section>
-
-
-
-        <section>
-        <h2>Gradle structure</h2>
-          <pre><code data-trim contenteditable style="font-size: 18px; margin-top: 20px;">
-conversation application/
+            </section>
+            <!-- Slide 11 - Gradle ShadowJar -->
+            <section>
+               <h3>Gradle ShadowJar plugin</h3>
+            </section>
+            <!-- Slide 12 - Gradle structure -->
+            <section>
+               <h2>Gradle structure</h2>
+               <pre><code data-trim contenteditable style="font-size: 18px; margin-top: 20px;">
+application/
 └── build.gradle       # Contains build script
 └── gradlew            # Downloads gradle
 └── wrapper
     ├── gradle-wrapper.jar
     └── gradle-wrapper.properties
           </code></pre>
-        </section>
-
-        <section>
-        <h2>Minimal Gradle #1</h2>
-          <pre><code data-trim contenteditable style="font-size: 18px; margin-top: 20px;">
+            </section>
+            <!-- Slide 13 - Minimal gradle -->
+            <section>
+               <h2>Minimal Gradle #1</h2>
+               <pre><code data-trim contenteditable style="font-size: 18px; margin-top: 20px;">
 # empty build.gradle
   </code></pre>
-        </section>
-
-        <section>
-        <h2>Minimal Gradle #2</h2>
-          <pre><code data-trim contenteditable style="font-size: 18px; margin-top: 20px;">
+            </section>
+            <!-- Slide 14 - Minimal gradle 2  -->
+            <section>
+               <h2>Minimal Gradle #2</h2>
+               <pre><code data-trim contenteditable style="font-size: 18px; margin-top: 20px;">
 # build.gradle
 
 apply plugin:'java'
@@ -179,8 +248,8 @@ version = '1.0.0-SNAPSHOT'
 
 description = "petclinic"
 
-sourceCompatibility = 1.7
-targetCompatibility = 1.7
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
 
 repositories {
 
@@ -193,34 +262,23 @@ dependencies {
 }
 
   </code></pre>
-        </section>
-
-        <section>
-        <h2>Gradle Wrapper</h2>
-          <p>Minimal wrapper to download and use specified Gradle version.</p>
-          <pre><code data-trim contenteditable style="font-size: 18px; margin-top: 20px;">
+            </section>
+            <!-- Slide 15 - Gradle wrapper -->
+            <section>
+               <h2>Gradle Wrapper</h2>
+               <p>Minimal wrapper to download and use specified Gradle version.</p>
+               <pre><code data-trim contenteditable style="font-size: 18px; margin-top: 20px;">
 ./gradlew tasks  # Downloads gradle and runs command to show tasks
           </code></pre>
-        </section>
-
-        <section>
-        <h2>Custom Gradle tasks</h2>
-          <p>Minimal wrapper to download and use specified Gradle version.</p>
-        </section>
-
-        <section>
-          <h2>Apply magic</h2>
-      <pre><code data-trim contenteditable style="font-size: 18px; margin-top: 20px;">
-# Add to gradle.properties in folder ~/.gradle
-
-org.gradle.daemon=true
-          </code>
-          </pre>
-        </section>
-
-        <section>
-        <h2>Get started from terminal</h2>
-          <pre><code data-trim contenteditable style="font-size: 18px; margin-top: 20px;">
+            </section>
+            <!-- Slide 16 - Custom tasks -->
+            <section>
+               <h2>Custom Gradle tasks</h2>
+            </section>
+            <!-- Slide 17 - Custom tasks -->
+            <section>
+               <h2>Get started from terminal</h2>
+               <pre><code data-trim contenteditable style="font-size: 18px; margin-top: 20px;">
 $ ./gradlew tasks   # Lists all tasks available
 
 $ ./gradlew jettyRun   # Builds and run on jetty
@@ -230,32 +288,24 @@ $ ./gradlew jettyRunWar  # Builds and run war on jetty
 $ ./gradlew build
 
         </code></pre>
-        </section>
+            </section>
+            <section>
+               <h2>Bonus</h2>
+               <br/>
+               <a href="http://mrhaki.blogspot.de/search/label/Gradle%3AGoodness">Gradle Goodness</a>
+            </section>
+            <section>
+               <h2>Handy trick</h2>
+               <pre><code data-trim contenteditable style="font-size: 18px; margin-top: 20px;">
+# Add to gradle.properties in folder ~/.gradle
 
-        <section>
-         <h2>Bonus</h2>
-         <br/>
-         <a href="http://mrhaki.blogspot.de/search/label/Gradle%3AGoodness">Gradle Goodness</a>
-        </section>
-
-       <section>
-       <h2>Feedback from gradle</h2>
-          <pre><code data-trim contenteditable style="font-size: 18px; margin-top: 20px;">
-
-        apply plugin: 'announce'
-
-task info {
-    doLast {
-        announce.announce "Running $it.name", 'local'
-        println gradle.gradleVersion
-    }
-}
-        </code></pre>
-        </section>
-
-      <section>
-      <h2>Encoding UTF-8</h2>
-          <pre><code data-trim contenteditable style="font-size: 18px; margin-top: 20px;">
+org.gradle.daemon=true
+          </code>
+          </pre>
+            </section>
+            <section>
+               <h2>Encoding UTF-8</h2>
+               <pre><code data-trim contenteditable style="font-size: 18px; margin-top: 20px;">
 #For specific task compileJava
 
 compileJava.options.encoding = 'UTF-8'
@@ -267,61 +317,61 @@ tasks.withType(Compile) {
     options.encoding = 'UTF-8'
 }
         </code></pre>
-        </section>
-
-      <section>
-      <h2>Profiling</h2>
-          <pre><code data-trim contenteditable style="font-size: 18px; margin-top: 20px;">
+            </section>
+            <section>
+               <h2>Profiling</h2>
+               <pre><code data-trim contenteditable style="font-size: 18px; margin-top: 20px;">
 $ gradle --profile build
 
         </code></pre>
-                <img src="http://4.bp.blogspot.com/_-vJw6r2W-bw/TOWZ-RYtrMI/AAAAAAAAEHg/oy1akB42uRk/s640/Screen+shot+2010-11-18+at+10.19.57+PM.png">
-      
-        </section>
+               <img src="http://4.bp.blogspot.com/_-vJw6r2W-bw/TOWZ-RYtrMI/AAAAAAAAEHg/oy1akB42uRk/s640/Screen+shot+2010-11-18+at+10.19.57+PM.png">
+            </section>
 
+            <section><h3>Autocompletion in bash</h3>
+              https://gist.github.com/nolanlawson/8694399
+              </section>
+            <section>
+            
+            <section><h3>IDE support</h3>
+              https://gist.github.com/nolanlawson/8694399
+              </section>
+            <section>   
 
-        <section>
-          <h3>Master your tool</h3>
-          <blockquote>
-            “I’ve known people who have not mastered their tools who are good programmers, but not a tool master who remained a mediocre programmer.” – Kent Beck
-          </blockquote>
-        </section>
-        <section>
-         <h2>Questions?</h2>
-         <br/>
-         </section>
-
+               <h3>Master your tool</h3>
+               <blockquote>
+                  “I’ve known people who have not mastered their tools who are good programmers, but not a tool master who remained a mediocre programmer.” – Kent Beck
+               </blockquote>
+            </section>
+            <section>
+               <h2>Questions?</h2>
+               <br/>
+            </section>
+         </div>
       </div>
-
-    </div>
-
-    <script src="lib/js/head.min.js"></script>
-    <script src="js/reveal.min.js"></script>
-
-    <script>
-
-      Reveal.initialize({
-        controls: false,
-        progress: true,
-        history: true,
-        center: true,
-        rollingLinks: false,
-
-        theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
-        transition: Reveal.getQueryHash().transition || 'linear', // default/cube/page/concave/zoom/linear/fade/none
-
-        // Optional libraries used to extend on reveal.js
-        dependencies: [
-          { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
-          { src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-          { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-          { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
-          { src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
-          { src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
-        ]
-      });
-
-    </script>
-
-  </body>
+      <script src="lib/js/head.min.js"></script>
+      <script src="js/reveal.min.js"></script>
+      <script>
+         Reveal.initialize({
+           controls: false,
+           progress: true,
+           history: true,
+           center: true,
+           rollingLinks: false,
+         
+           theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+           transition: Reveal.getQueryHash().transition || 'linear', // default/cube/page/concave/zoom/linear/fade/none
+         
+           // Optional libraries used to extend on reveal.js
+           dependencies: [
+             { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+             { src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+             { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+             { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+             { src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+             { src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+           ]
+         });
+         
+      </script>
+   </body>
 </html>
