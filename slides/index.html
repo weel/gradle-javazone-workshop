@@ -33,9 +33,19 @@
                <img width="300" height="300" src="http://imgs.xkcd.com/comics/compiling.png">
                </a>
                <br/>
-               <small></small>
+               <small>Morten Weel Johnsen</small>
             </section>
-            <!-- Slide 1 - Expected outcome -->
+            <!-- Slide  - Expected outcome -->
+            <section>
+               <h3>About me</h3>
+               <br/>
+               <ul>
+                  <li class="fragment">Developer at Iterate</li>
+                  <li class="fragment">Android, Java, Frontend/backend developement</li>
+                  <li class="fragment">Migrated from Maven/Ant/Make to gradle</li>
+               </ul>
+            </section>
+           
             <section>
                <h3>Expected outcome?</h3>
                <br/>
@@ -45,59 +55,58 @@
                   <li class="fragment">Migrate from Maven to Gradle</li>
                </ul>
             </section>
-            <!-- Slide 2 - Agenda -->
+            <!-- Slide  - Agenda -->
             <section>
                <h3>Agenda</h3>
                <ul>
                   <li class="fragment">Motivation & Background</li>
-                  <li class="fragment">Maven vs Gradle vs Ant</li>
+                  <li class="fragment">Maven vs Gradle</li>
                   <li class="fragment">Gradle Intro</li>
                   <li class="fragment">Build Java Webapps with Gradle</li>
                   <li class="fragment">Migrating from Maven to Gradle</li>
-                  <li class="fragment">Gradle tips & Tricks</li>
                   <li class="fragment">Bonus</li>
                </ul>
             </section>
-            <!-- Slide 3 - Comparison of popularity -->
+            <!-- Slide  - Comparison of popularity -->
             <section>
                <a href="#">
                <img  src="http://zeroturnaround.com/wp-content/uploads/2014/01/build-tools-popularity-2010-to-2013.jpg">
                </a>
             </section>
-            <!-- Slide 4 - Why choose gradle over Maven -->
-            <section id="fragments">
+            <!-- Slide  - Why choose gradle over Maven -->
+            <section>
                <h3>Why choose Gradle over Maven</h3>
                <ul>
                   <li class="fragment">DSL instead of XML</li>
-                  <li class="fragment">Gradle Wrapper</li>
                   <li class="fragment">Documentation is awesome</li>
                   <li class="fragment">Both uses maven repository</li>
                   <li class="fragment">No boilerplate</li>
                   <li class="fragment">Convention over configuration</li>
+                  <li class="fragment">Gradle Wrapper</li>
                   <li class="fragment">Gradle Daemon for faster builds</li>
                </ul>
             </section>
-            <!-- Slide 5 - Getting started - Clone repo -->
-            <section id="fragment">
+            <!-- Slide  - Getting started - Clone repo -->
+            <section >
                <h3>Getting started:</h3>
                git clone git@github.com:weel/gradle-java-workshop.git
             </section>
-            <!-- Slide 5 - Getting started with gradle -->
-            <section id="fragment">
+            <!-- Slide  - Getting started with gradle -->
+            <section>
                <h3>Task 1 - Getting started</h3>
                <ol>
-                  <li class="fragment">Download from http://www.gradle.org/</li>
-                  <li class="fragment">Install gradle/Add to path</li>
+                  <li class="fragment">Download from http://www.gradle.org/ (version 2.1)</li>
+                  <li class="fragment">Install gradle & add to path</li>
                   <li class="fragment">Run 'gradle init' in an empty folder </li>
                   <li class="fragment">Run 'gradle tasks' to get a list of all tasks available</li>
                </ol>
             </section>
-            <!-- Slide 6 - Projects and tasks -->
-            <section id="fragment">
+            <!-- Slide  - Projects and tasks -->
+            <section>
                <h3>Projects and tasks</h3>
                <small>Everything in Gradle sits on top of two basic concepts: projects and tasks</small>
             </section>
-            <!-- Slide 7 - Gradle tasks -->
+            <!-- Slide  - Gradle tasks -->
             <section>
                <h3>Gradle Tasks</h3>
                <a href="http://www.gradle.org/docs/current/dsl/org.gradle.api.Task.html">Documentation</a>
@@ -107,7 +116,19 @@ task copyPoems(type: Copy) {
   into 'build/poems'
 }          </code></pre>
             </section>
-            <!-- Slide 7 - Gradle plugins -->
+
+ <section>
+               <h3>Task 2 - Gradle tasks</h3>
+               <ol>
+                  <li class="fragment"></li>
+                  <li class="fragment"></li>
+                  <li class="fragment"></li>
+                  <li class="fragment"></li>
+               </ol>
+            </section>
+           
+
+            <!-- Slide  - Gradle plugins -->
             <section>
                <h3>Gradle Plugins</h3>
                <a href="http://www.gradle.org/plugins">Documentation</a>
@@ -117,15 +138,71 @@ apply plugin: 'java'
 #Other common plugins: android, jetty, maven +++
 </code></pre>
             </section>
-            <!-- Slide 8 - The java plugin -->
+
+
+            <section>
+               <h3>Maven vs Gradle dependencies</h3>
+               <pre><code data-trim contenteditable style="font-size: 18px; margin-top: 20px;">
+       <dependency>
+    <groupId>com.google.guava</groupId>
+    <artifactId>guava</artifactId>
+    <version>16.0.1</version>
+</dependency>
+
+
+compile 'com.google.guava:guava:16.0.1'
+# Or
+compile group:'com.google.guava' name: 'guava' version: '16.0.1'
+       </code></pre>
+            </section>
+
+                        <!-- Slide  - Gradle structure -->
+            <section>
+               <h2>Gradle structure</h2>
+               <pre><code data-trim contenteditable style="font-size: 18px; margin-top: 20px;">
+application/
+└── build.gradle       # Contains build script
+└── gradlew            # Downloads gradle
+└── wrapper
+    ├── gradle-wrapper.jar
+    └── gradle-wrapper.properties
+          </code></pre>
+            </section>
+            <!-- Slide  - Minimal gradle -->
+            <section>
+               <h2>Minimal Gradle #1</h2>
+               <pre><code data-trim contenteditable style="font-size: 18px; margin-top: 20px;">
+# empty build.gradle
+  </code></pre>
+            </section>
+            <!-- Slide  - Minimal gradle 2  -->
+            <section>
+               <h2>Minimal Gradle #2</h2>
+               <pre><code data-trim contenteditable style="font-size: 18px; margin-top: 20px;">
+# build.gradle
+apply plugin:'java'
+
+group = 'no.gradlejavazone.samples'
+version = '1.0.0'
+description = "Samples"
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+repositories {
+     maven { url "http://repo.maven.apache.org/maven2" }
+}
+
+dependencies {
+    compile group: 'org.hibernate', name: 'hibernate', version:'3.1.0'
+    compile 'org.hibernate:hibernate-core:3.6.7'
+}
+
+  </code></pre>
+            </section>
+
             <section>
                <h3>The Java plugin</h3>
-               <a href="http://www.gradle.org/plugins">Documentation</a>
-               <pre><code data-trim contenteditable style="font-size: 18px; margin-top: 20px;">
-apply plugin: 'java'
-
-#Other common plugins: android, jetty, maven +++
-</code></pre>
                <a href="http://www.gradle.org/docs/current/userguide/img/javaPluginTasks.png"><img width="1250" height="329" src="http://www.gradle.org/docs/current/userguide/img/javaPluginTasks.png"></a>
             </section>
             <section>
@@ -134,7 +211,7 @@ apply plugin: 'java'
 gradle init --type java-library
        </code></pre>
             </section>
-            <!-- Slide 9 - Java plugin, directory structure -->
+            <!-- Slide  - Java plugin, directory structure -->
             <section>
                <div class="table">
                   <p class="title"><b>Table&nbsp;23.4.&nbsp;Java plugin - default project layout</b></p>
@@ -195,75 +272,72 @@ gradle init --type java-library
                   </div>
                </div>
             </section>
-            <!-- Slide 10 - dependencies -->
-            <section>
-               <h3>Maven vs Gradle dependencies</h3>
-               <pre><code data-trim contenteditable style="font-size: 18px; margin-top: 20px;">
-       <dependency>
-    <groupId>com.google.guava</groupId>
-    <artifactId>guava</artifactId>
-    <version>16.0.1</version>
-</dependency>
+            <!-- Slide  - dependencies -->
+       
 
-
-compile 'com.google.guava:guava:16.0.1'
-# Or
-compile group:'com.google.guava' name: 'guava' version: '16.0.1'
-       </code></pre>
+                <section>
+               <h3>Task 2 - Running a simple junit testcase</h3>
+               <ol>
+                  <li class="fragment">Create an empty build.gradle file</li>
+                  <li class="fragment">Add dependency for latest junit version</li>
+                  <li class="fragment">Create a Junit test in src/test/java/</li>
+                  <li class="fragment">Run tests</li>
+               </ol>
             </section>
-            <!-- Slide 11 - Gradle ShadowJar -->
+
+           <section>
+               <h3>Task 3 - Running a simple Java application - Tutorial</h3>
+               <ol>
+                  <li class="fragment">Apply plugin 'application'</li>
+                  <li class="fragment">Create a java file in src/main/java with a main method</li>
+                  <li class="fragment">Add guava as dependency</li>
+                  <li class="fragment">Run</li>
+               </ol>
+            </section>
+
+
+            <section>
+               <h2>Defining Main-class attribute</h2>
+               <pre><code data-trim contenteditable style="font-size: 18px; margin-top: 20px;">
+
+jar {
+    manifest {
+        attributes 'Main-Class': 'net.petrikainulainen.gradle.HelloWorld'
+    }
+}
+  </code></pre>
+            </section>
+
+              <section>
+               <h3>Task 4 - Migrating from Maven to Gradle manually </h3>
+               <ol>
+                  <li class="fragment">Based on simple REST example Restify</li>
+
+               </ol>
+            </section>
+
+              <section>
+               <h3>Task 4 - Migrating from Maven to Gradle using migrating tool</h3>
+               <ol>
+                 <li class="fragment">
+               </ol>
+            </section>
+
+
+
+            <!-- Slide  - Gradle ShadowJar -->
             <section>
                <h3>Gradle ShadowJar plugin</h3>
-            </section>
-            <!-- Slide 12 - Gradle structure -->
-            <section>
-               <h2>Gradle structure</h2>
-               <pre><code data-trim contenteditable style="font-size: 18px; margin-top: 20px;">
-application/
-└── build.gradle       # Contains build script
-└── gradlew            # Downloads gradle
-└── wrapper
-    ├── gradle-wrapper.jar
-    └── gradle-wrapper.properties
-          </code></pre>
-            </section>
-            <!-- Slide 13 - Minimal gradle -->
-            <section>
-               <h2>Minimal Gradle #1</h2>
-               <pre><code data-trim contenteditable style="font-size: 18px; margin-top: 20px;">
-# empty build.gradle
-  </code></pre>
-            </section>
-            <!-- Slide 14 - Minimal gradle 2  -->
-            <section>
-               <h2>Minimal Gradle #2</h2>
-               <pre><code data-trim contenteditable style="font-size: 18px; margin-top: 20px;">
-# build.gradle
-
-apply plugin:'java'
-apply plugin: 'jetty'
-
-group = 'org.springframework.samples'
-version = '1.0.0-SNAPSHOT'
-
-description = "petclinic"
-
-sourceCompatibility = 1.8
-targetCompatibility = 1.8
-
-repositories {
-
-     maven { url "http://repo.maven.apache.org/maven2" }
+    <pre><code data-trim contenteditable style="font-size: 18px; margin-top: 20px;">
+shadowJar {
+  mergeServiceFiles {
+    exclude 'META-INF/*.*SA'
+  }
 }
-
-dependencies {
-    compile group: 'org.hibernate', name: 'hibernate', version:'3.1.0'
-    compile 'org.hibernate:hibernate-core:3.6.7'
-}
-
-  </code></pre>
+ </code></pre>
             </section>
-            <!-- Slide 15 - Gradle wrapper -->
+
+            <!-- Slide  - Gradle wrapper -->
             <section>
                <h2>Gradle Wrapper</h2>
                <p>Minimal wrapper to download and use specified Gradle version.</p>
@@ -271,11 +345,7 @@ dependencies {
 ./gradlew tasks  # Downloads gradle and runs command to show tasks
           </code></pre>
             </section>
-            <!-- Slide 16 - Custom tasks -->
-            <section>
-               <h2>Custom Gradle tasks</h2>
-            </section>
-            <!-- Slide 17 - Custom tasks -->
+         
             <section>
                <h2>Get started from terminal</h2>
                <pre><code data-trim contenteditable style="font-size: 18px; margin-top: 20px;">
@@ -292,14 +362,19 @@ $ ./gradlew build
             <section>
                <h2>Bonus</h2>
                <br/>
+               <a href="http://www.gradle.org/learn">http://www.gradle.org/learn</a>
                <a href="http://mrhaki.blogspot.de/search/label/Gradle%3AGoodness">Gradle Goodness</a>
             </section>
             <section>
-               <h2>Handy trick</h2>
+               <h2>Gradle daemon</h2>
                <pre><code data-trim contenteditable style="font-size: 18px; margin-top: 20px;">
 # Add to gradle.properties in folder ~/.gradle
 
 org.gradle.daemon=true
+
+or start with
+gradle --daemon
+
           </code>
           </pre>
             </section>
@@ -318,6 +393,25 @@ tasks.withType(Compile) {
 }
         </code></pre>
             </section>
+
+                  <section>
+      <h2>Publishing artifacts</h2>
+          <pre><code data-trim contenteditable style="font-size: 18px; margin-top: 20px;">
+          
+apply plugin: 'java'
+apply plugin: 'maven'
+
+group = 'com.gradleware.samples'
+
+uploadArchives {
+    repositories.mavenDeployer {
+        repository(url: "file:///Users/mccm06/Documents/Temp/Scratch/mytemprepo/")
+    }
+}
+        </code></pre>
+      
+        </section>
+
             <section>
                <h2>Profiling</h2>
                <pre><code data-trim contenteditable style="font-size: 18px; margin-top: 20px;">
@@ -333,7 +427,6 @@ $ gradle --profile build
             <section>
             
             <section><h3>IDE support</h3>
-              https://gist.github.com/nolanlawson/8694399
               </section>
             <section>   
 
