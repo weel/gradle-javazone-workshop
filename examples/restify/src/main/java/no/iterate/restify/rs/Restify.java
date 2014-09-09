@@ -1,10 +1,10 @@
 package no.iterate.restify.rs;
 
 
-import com.sun.jersey.spi.container.servlet.ServletContainer;
 import org.eclipse.jetty.server.Server;
 import org.eclipse.jetty.servlet.ServletContextHandler;
 import org.eclipse.jetty.servlet.ServletHolder;
+import org.glassfish.jersey.servlet.ServletContainer;
 
 public class Restify {
 
@@ -19,15 +19,9 @@ public class Restify {
         final ServletHolder servletHolder = new ServletHolder(ServletContainer.class);
 
         servletHolder.setInitParameter(
-                "com.sun.jersey.config.property.resourceConfigClass",
-                "com.sun.jersey.api.core.PackagesResourceConfig");
-
-        servletHolder.setInitParameter(
-                "com.sun.jersey.config.property.packages",
+                "jersey.config.server.provider.packages",
                 "no.iterate.restify.rs" +
-                ";org.codehaus.jackson.jaxrs");
-
-        servletHolder.setInitParameter("com.sun.jersey.api.json.POJOMappingFeature", "true");
+                        ";org.codehaus.jackson.jaxrs");
 
 
         ServletContextHandler context = new ServletContextHandler(ServletContextHandler.SESSIONS);

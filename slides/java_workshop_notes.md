@@ -26,6 +26,7 @@ Add gradle to PATH
 
 
 Topics:
+Gradle version (2.0)
 Gradle wrapper
 Gradle init (Migrate from Maven pom.xml to build.gradle)
 Incremental build
@@ -79,9 +80,41 @@ The buildScript block determines which plugins, task classes, and other classes 
 
 ###############################
 
+Tasks:
+
+- Getting started.
+Download and install gradle.
+Play around, gradle add to path:  export PATH=~/gradle_home/bin:$PATH
+gradle tasks, gradle --help
 
 
+- Look at the output structure.
 
+
+Task 2)
+Create a simple java unit test and build and test it with gradle
+Get familiar with the default sources
+
+
+Task 3) 
+Migrate an existing Maven project to be build to gradle. (Restify)
+Verify that it runs.
+
+Task 4) 
+Migrate an existing Maven project to gradle using gradle init (in incubation), DropWizard
+
+
+Task 5)
+Create a custom task to copy output to a seperate location
+
+Task 6)
+Getting to know the gradle wrapper
+
+Task 7) 
+Task dependency
+
+Task 8)
+Multi-Project builds
 
 
 
