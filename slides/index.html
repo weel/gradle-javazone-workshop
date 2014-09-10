@@ -486,7 +486,19 @@ $ gradle --profile build
             
             <section><h3>IDE support</h3>
               </section>
+     <h2>Defining variables</h2>
+          <pre><code data-trim contenteditable style="font-size: 18px; margin-top: 20px;">
+          
+def helloName = "JavaZone"
+int personAge = 40 
 
+task hello << {
+    println "Hello ${helloName}. I believe you are ${personAge} years of age."
+}
+
+        </code></pre>
+      
+ 
             <section>
                <h2>Questions?</h2>
                <small>Leave feedback: http://bit.ly/gradle-feedback</small>
