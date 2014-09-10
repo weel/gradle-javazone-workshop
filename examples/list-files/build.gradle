@@ -1,0 +1,10 @@
+task list <<  {
+    File srcDir
+    FileCollection collection = files('src/hello.java')
+    // Create a file collection using a closure
+    collection = files { srcDir.listFiles() }
+
+    srcDir = file('src')
+    println "Contents of $srcDir.name"
+    collection.collect { relativePath(it) }.sort().each { println it }
+}

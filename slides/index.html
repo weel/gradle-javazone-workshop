@@ -37,7 +37,7 @@
             </section>
             <!-- Slide  - Expected outcome -->
             <section>
-               <h3>About me</h3>
+               <h3>About</h3>
                <br/>
                <ul>
                   <li class="fragment">Developer at Iterate</li>
@@ -84,12 +84,17 @@
                   <li class="fragment">Convention over configuration</li>
                   <li class="fragment">Gradle Wrapper</li>
                   <li class="fragment">Gradle Daemon for faster builds</li>
+                  <li class="fragment">Better multi-module project support</li>
                </ul>
             </section>
-            <!-- Slide  - Getting started - Clone repo -->
-            <section >
-               <h3>Getting started:</h3>
-               git clone git@github.com:weel/gradle-java-workshop.git
+
+              <section>
+               <h3>Gradle</h3>
+               <ul>
+                  <li class="fragment">Groovy</li>
+                  <li class="fragment">Gradle 1.0 released in 2012</li>
+                  <li class="fragment">Latest version 2.1</li>
+                  </ul>
             </section>
             <!-- Slide  - Getting started with gradle -->
             <section>
@@ -99,12 +104,19 @@
                   <li class="fragment">Install gradle & add to path</li>
                   <li class="fragment">Run 'gradle init' in an empty folder </li>
                   <li class="fragment">Run 'gradle tasks' to get a list of all tasks available</li>
+           
+                  <li class="fragment"> git clone git@github.com:weel/gradle-javazone-workshop.git</li>
+               
+              
                </ol>
             </section>
             <!-- Slide  - Projects and tasks -->
             <section>
                <h3>Projects and tasks</h3>
                <small>Everything in Gradle sits on top of two basic concepts: projects and tasks</small>
+               <ul>
+                  <li class="fragment">Each project maps one-to-one to a build.gradle file</li>
+               </ul>
             </section>
             <!-- Slide  - Gradle tasks -->
             <section>
@@ -116,14 +128,28 @@ task copyPoems(type: Copy) {
   into 'build/poems'
 }          </code></pre>
             </section>
+   <section>
+               <h3>Gradle Tasks II - Dependencies</h3>
+               <a href="http://www.gradle.org/docs/current/dsl/org.gradle.api.Task.html">Documentation</a>
+               <pre><code data-trim contenteditable style="font-size: 18px; margin-top: 20px;">
+task taskX << {
+    println 'taskX'
+}
 
+task taskY << {
+    println 'taskY'
+}
+
+taskX.dependsOn taskY
+</code></pre>
+            </section>
  <section>
                <h3>Task 2 - Gradle tasks</h3>
                <ol>
-                  <li class="fragment"></li>
-                  <li class="fragment"></li>
-                  <li class="fragment"></li>
-                  <li class="fragment"></li>
+                  <li class="fragment">Create a task that prints Hello World</li>
+                  <li class="fragment">Create a task that copies files from a folder into build folder</li>
+                  <li class="fragment">Create a task that list the files in a folder</li>
+                  <li class="fragment">Create two tasks that uses task dependencies to print Hello World</li>
                </ol>
             </section>
            
@@ -138,7 +164,13 @@ apply plugin: 'java'
 #Other common plugins: android, jetty, maven +++
 </code></pre>
             </section>
-
+<section>
+               <h3>Task 3 - Gradle plugins</h3>
+               <ol>
+                  <li class="fragment">Apply plugins and run gradle tasks</li>
+                  <li class="fragment">Interesting plugins: application, java, jetty, idea, eclipse</li>
+               </ol>
+            </section>
 
             <section>
                <h3>Maven vs Gradle dependencies</h3>
@@ -276,7 +308,7 @@ gradle init --type java-library
        
 
                 <section>
-               <h3>Task 2 - Running a simple junit testcase</h3>
+               <h3>Task 3 - Running a simple junit testcase</h3>
                <ol>
                   <li class="fragment">Create an empty build.gradle file</li>
                   <li class="fragment">Add dependency for latest junit version</li>
@@ -286,7 +318,7 @@ gradle init --type java-library
             </section>
 
            <section>
-               <h3>Task 3 - Running a simple Java application - Tutorial</h3>
+               <h3>Task 4 - Running a simple Java application - Tutorial</h3>
                <ol>
                   <li class="fragment">Apply plugin 'application'</li>
                   <li class="fragment">Create a java file in src/main/java with a main method</li>
@@ -302,28 +334,11 @@ gradle init --type java-library
 
 jar {
     manifest {
-        attributes 'Main-Class': 'net.petrikainulainen.gradle.HelloWorld'
+        attributes 'Main-Class': 'no.weel.javazone.HelloWorld'
     }
 }
   </code></pre>
             </section>
-
-              <section>
-               <h3>Task 4 - Migrating from Maven to Gradle manually </h3>
-               <ol>
-                  <li class="fragment">Based on simple REST example Restify</li>
-
-               </ol>
-            </section>
-
-              <section>
-               <h3>Task 4 - Migrating from Maven to Gradle using migrating tool</h3>
-               <ol>
-                 <li class="fragment">
-               </ol>
-            </section>
-
-
 
             <!-- Slide  - Gradle ShadowJar -->
             <section>
@@ -336,6 +351,30 @@ shadowJar {
 }
  </code></pre>
             </section>
+
+              <section>
+               <h3>Task 4.1 - Migrating from Maven to Gradle manually </h3>
+               <ol>
+                  <li class="fragment">Based on simple REST example Restify</li>
+               </ol>
+            </section>
+
+              <section>
+               <h3>Task 4.2 - Migrating from Maven to Gradle using migrating tool</h3>
+                <ol>
+                  <li class="fragment">Based on simple REST example Restify</li>
+               </ol>
+     
+            </section>
+
+              <section>
+               <h3>Task 5 - Migrating from Maven to Gradle using migrating tool</h3>
+                <ol>
+                  <li class="fragment">Based on dropwizard-example</li>
+               </ol>
+     
+            </section>
+
 
             <!-- Slide  - Gradle wrapper -->
             <section>
@@ -363,7 +402,6 @@ $ ./gradlew build
                <h2>Bonus</h2>
                <br/>
                <a href="http://www.gradle.org/learn">http://www.gradle.org/learn</a>
-               <a href="http://mrhaki.blogspot.de/search/label/Gradle%3AGoodness">Gradle Goodness</a>
             </section>
             <section>
                <h2>Gradle daemon</h2>
@@ -378,6 +416,26 @@ gradle --daemon
           </code>
           </pre>
             </section>
+   <section>
+               <h2>Incremental builds</h2>
+                  <ol>
+                  <li class="fragment">Reduced compilation time during development due to less files being compiled</li>
+                  <li class="fragment">Class files whose content is unchanged by a compile are not updated on the filesystem</li>
+               </ol>
+             </section>
+
+            <section>
+               <h2>Encoding UTF-8</h2>
+               <pre><code data-trim contenteditable style="font-size: 18px; margin-top: 20px;">
+                 
+allprojects {
+    tasks.withType(JavaCompile) {
+        options.incremental = true
+    }
+}
+        </code></pre>
+            </section>
+
             <section>
                <h2>Encoding UTF-8</h2>
                <pre><code data-trim contenteditable style="font-size: 18px; margin-top: 20px;">
@@ -405,7 +463,7 @@ group = 'com.gradleware.samples'
 
 uploadArchives {
     repositories.mavenDeployer {
-        repository(url: "file:///Users/mccm06/Documents/Temp/Scratch/mytemprepo/")
+        repository(url: "https://mavenrepository.com")
     }
 }
         </code></pre>
@@ -428,16 +486,19 @@ $ gradle --profile build
             
             <section><h3>IDE support</h3>
               </section>
+
+            <section>
+               <h2>Questions?</h2>
+               <small>Leave feedback: http://bit.ly/gradle-feedback</small>
+               <br/>
+            </section>
+
             <section>   
 
                <h3>Master your tool</h3>
                <blockquote>
                   “I’ve known people who have not mastered their tools who are good programmers, but not a tool master who remained a mediocre programmer.” – Kent Beck
                </blockquote>
-            </section>
-            <section>
-               <h2>Questions?</h2>
-               <br/>
             </section>
          </div>
       </div>
