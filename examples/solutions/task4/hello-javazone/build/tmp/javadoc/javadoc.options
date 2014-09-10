@@ -1,0 +1,7 @@
+-classpath '/Users/weel/development/gradle-javazone-workshop/examples/solutions/hello-javazone/build/classes/main:/Users/weel/development/gradle-javazone-workshop/examples/solutions/hello-javazone/build/resources/main'
+-d '/Users/weel/development/gradle-javazone-workshop/examples/solutions/hello-javazone/build/docs/javadoc'
+-doctitle 'hello-javazone API'
+-quiet 
+-windowtitle 'hello-javazone API'
+'/Users/weel/development/gradle-javazone-workshop/examples/solutions/hello-javazone/src/main/java/hello/Greeter.java'
+'/Users/weel/development/gradle-javazone-workshop/examples/solutions/hello-javazone/src/main/java/hello/HelloJavaZone.java'

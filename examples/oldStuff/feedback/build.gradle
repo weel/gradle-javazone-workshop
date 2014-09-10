@@ -1,8 +1,0 @@
-apply plugin: 'announce'
-
-task info {
-    doLast {
-        announce.announce "Running $it.name", 'local'
-        println gradle.gradleVersion
-    }
-}
